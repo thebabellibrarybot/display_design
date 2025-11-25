@@ -1,0 +1,102 @@
+.paintings-page {
+    padding-top: 80px; /* room for fixed navbar */
+  }
+
+  .navbar-sm {
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    padding: 1rem 2rem;
+  
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
+    color: black;
+  
+    border-bottom: 1px solid black;
+  
+    font-family: "Times New Roman", Times, serif;
+  
+    z-index: 100;
+  }
+  
+  /* Header with title + year submenu */
+  .paintings-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem auto 1.5rem;
+    max-width: 1000px;
+    padding: 0 1.5rem;
+  }
+  
+  .paintings-header h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Year submenu */
+  .year-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .year-menu__item {
+    border: 1px solid black;
+    background: white;
+    color: black;
+    padding: 0.25rem 0.75rem;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .year-menu__item--active {
+    background: black;
+    color: white;
+  }
+  
+  /* Grid of paintings */
+  .paintings-grid {
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+  
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .paintings-grid__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid black;
+  }
+  
+  /* Empty state */
+  .paintings-empty {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    font-style: italic;
+  }
+  
+  /* Mobile tweaks */
+  @media (max-width: 768px) {
+    .paintings-header {
+      margin-top: 1.5rem;
+      padding: 0 1rem;
+    }
+  
+    .paintings-grid {
+      padding: 0 1rem;
+      gap: 1rem;
+    }
+  }
+  

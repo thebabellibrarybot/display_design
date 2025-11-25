@@ -1,18 +1,24 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Paintings from "./components/Paintings";
+import Books from "./components/Books";
+import Bio from "./components/Bio";
 
 function App() {
   return (
     <>
       <Navbar />
 
-      <div style={{ paddingTop: "80px" }}>
-        {/* Your page content */}
-        <h1>Welcome to my portfolio</h1>
-      </div>
+      <Routes>
+        <Route path="/my-portfolio" element={<Home />} />
+        <Route path="/my-portfolio/paintings" element={<Paintings />} />
+        <Route path="/my-portfolio/books" element={<Books />} />
+        <Route path="/my-portfolio/bio" element={<Bio />} />
+      </Routes>
     </>
   );
 }
 
 export default App;
-

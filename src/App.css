@@ -1,42 +1,113 @@
-#root {
-  max-width: 1280px;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base page styles */
+html,
+body {
+  height: 100%;
+  background: white;
+  color: black;
+  font-family: "Times New Roman", Times, serif;
+  scroll-behavior: smooth;
+}
+
+/* Layout: main content under fixed nav */
+main {
+  padding-top: 80px; /* space for navbar */
+}
+
+/* Desktop layout */
+@media (min-width: 769px) {
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  section {
+    margin-bottom: 4rem;
+  }
+
+  section h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Phone layout */
+@media (max-width: 768px) {
+  main {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* Links in content */
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+a:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+/* ---------- FULLSCREEN HERO (HOME PAGE) ---------- */
+
+.home-hero {
+  height: 100vh;               /* full screen height */
+  width: 100%;
+  background-image: url("/bg.jpg"); /* replace with your image */
+  background-size: cover;       /* fill the screen */
+  background-position: center;  /* center image */
+  background-repeat: no-repeat;
+
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* optional faint overlay */
+.home-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(0, 0, 0, 0.1); /* light darkening - optional */
+}
+
+/* ---------- Styles for pages (ALT PAGE) ---------- */
+.page {
+  padding-top: 80px;        /* room for fixed navbar */
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding-inline: 1.5rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.page h1 {
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

@@ -1,36 +1,185 @@
+/* -------- Root navbar container -------- */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 32px;
-    background-color: #111;
-    color: white;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 10;
+  
+    padding: 1rem 2rem;
+  
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
+    color: black;
+  
+    border-bottom: 1px solid black;
+  
+    font-family: "Times New Roman", Times, serif;
+  
+    z-index: 100;
   }
   
+  /* -------- Left side: logo/name -------- */
   .nav-logo {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  /* Make the logo behave like plain text, not a link */
+.nav-logo {
+    color: black;
+    text-decoration: none;   /* remove underline */
+    cursor: pointer;         /* optional: make it feel clickable */
   }
   
+  /* Ensure no hover underline / no default link effect */
+  .nav-logo:hover {
+    text-decoration: none;
+    opacity: 0.85;           /* optional subtle hover effect */
+  }
+  
+  /* Remove default link styling specifically inside navbar */
+  .nav-logo:visited {
+    color: black;
+  }
+  
+  /* -------- Right side: nav links (base / desktop) -------- */
   .nav-links {
     list-style: none;
     display: flex;
-    gap: 24px;
+    gap: 2rem;
+  
+    margin: 0;
+    padding: 0;
   }
   
-  .nav-links a {
-    color: white;
+  /* Each link */
+  .nav-links li a {
+    color: black;
     text-decoration: none;
+  
     font-size: 1rem;
-    transition: opacity 0.2s ease-in-out;
+    letter-spacing: 0.04em;
+    padding-bottom: 2px;
+  
+    position: relative;
   }
   
-  .nav-links a:hover {
-    opacity: 0.6;
+  /* Underline hover — minimalist catalog style */
+  .nav-links li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  
+    width: 0%;
+    height: 1px;
+    background: black;
+  
+    transition: width 0.25s ease;
+  }
+  
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
+  
+  /* -------- Hamburger button (hidden on desktop) -------- */
+  .nav-toggle {
+    display: none; /* default: hide, we'll show on mobile */
+    border: 1px solid black;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
+    padding: 0.25rem;
+    width: 32px;
+    height: 32px;
+  
+    display: none;
+    align-items: center;
+    justify-content: center;
+  
+    cursor: pointer;
+  }
+  
+  /* The three lines */
+  .nav-toggle span {
+    display: block;
+    width: 16px;
+    height: 1px;
+    background: black;
+    margin: 3px 0;
+  }
+  
+  /* Simple "X" state when open (optional, subtle) */
+  .nav-toggle--open span:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  
+  .nav-toggle--open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .nav-toggle--open span:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+  
+  /* -------- Responsive behavior -------- */
+  
+  /* Desktop (769px and up) */
+  @media (min-width: 769px) {
+    .nav-toggle {
+      display: none;      /* hide hamburger */
+    }
+  
+    .nav-links {
+      display: flex;      /* show links inline */
+      position: static;
+    }
+  }
+  
+  /* Phone / small screens (up to 768px) */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 0.75rem 1rem;
+    }
+  
+    .nav-logo {
+      font-size: 1rem;
+    }
+  
+    .nav-toggle {
+      display: flex;      /* show hamburger */
+    }
+  
+    /* Turn the links into a dropdown panel */
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      right: 1rem;
+  
+      display: none;      /* hidden by default */
+      flex-direction: column;
+      gap: 0.75rem;
+  
+      margin-top: 0.5rem;
+      padding: 0.75rem 1rem;
+  
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(6px);
+      border: 1px solid black;
+    }
+  
+    .nav-links.nav-links--open {
+      display: flex;      /* show when state is open */
+    }
+  
+    .nav-links li a {
+      font-size: 0.9rem;
+    }
   }
   

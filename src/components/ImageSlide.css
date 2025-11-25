@@ -1,0 +1,46 @@
+.image-slide {
+    max-width: 1000px;          /* cap width on large screens */
+    margin: 0 auto;             /* center horizontally */
+    padding: 2rem 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Image: as large as possible, but never overflow container */
+  .image-slide__img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid black;
+  }
+  
+  /* Filename centered below image */
+  .image-slide__caption {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+    text-transform: none;
+    word-break: break-word;
+  }
+  
+  /* Stack nicely with space between slides */
+  .image-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  /* Mobile tweaks */
+  @media (max-width: 768px) {
+    .image-slide {
+      padding: 1.5rem 1rem 0.75rem;
+    }
+  
+    .image-slide__caption {
+      font-size: 0.9rem;
+    }
+  }
+  
