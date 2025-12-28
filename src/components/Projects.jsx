@@ -1,14 +1,15 @@
 import React, { useMemo, useState } from "react";
-import "./Paintings.css";
+import "./Projects.css";
 import ImageSlide from "./ImageSlide";
-import { groupPaintingsByYear, getFilesForYear } from "../utils/files";
+import { groupProjectsByYear, getFilesForYear } from "../utils/files";
+import Navbar from "./Navbar";
 
-const paintingsByYear = groupPaintingsByYear();
+const projectsByYear = groupProjectsByYear();
 
 
-export default function Paintings() {
+export default function Projects() {
   const years = useMemo(
-    () => Object.keys(paintingsByYear).sort().reverse(), // newest first
+    () => Object.keys(projectsByYear).sort().reverse(), // newest first
     []
   );
 
@@ -17,11 +18,12 @@ export default function Paintings() {
   console.log(images, 'images')
 
   return (
-    <main className="page paintings-page">
+    <main className="page projects-page">
+      <Navbar/>
         <header className="navbar-sm">
-            <p>Paintings</p>
+            <p>Projects</p>
             {/* Year submenu */}
-            <nav className="year-menu" aria-label="Paintings by year">
+            <nav className="year-menu" aria-label="projects by year">
             {years.map((year) => (
                 <button
                 key={year}

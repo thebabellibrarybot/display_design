@@ -2,15 +2,15 @@
 
 // Grab all painting images grouped by year folders:
 // src/assets/paintings/2001/..., 2002/..., etc.
-const paintingModules = import.meta.glob(
+const projectModules = import.meta.glob(
     "../assets/paintings/*/*.{jpg,jpeg,png,gif}",
     { eager: true }
   );
   
-  export function groupPaintingsByYear() {
+  export function groupProjectsByYear() {
     const byYear = {};
   
-    for (const [path, module] of Object.entries(paintingModules)) {
+    for (const [path, module] of Object.entries(projectModules)) {
       // Example path: "../assets/paintings/2001/painting1.jpg"
       const match = path.match(/paintings\/(\d{4})\//);
       if (!match) continue;
@@ -30,7 +30,7 @@ const paintingModules = import.meta.glob(
   export function getFilesForYear(year) {
     const results = [];
   
-    for (const [path, module] of Object.entries(paintingModules)) {
+    for (const [path, module] of Object.entries(projectModules)) {
       // Example path: "../assets/paintings/2001/file.jpg"
       const match = path.match(/paintings\/(\d{4})\//);
       if (!match) continue;

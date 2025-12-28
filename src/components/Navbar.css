@@ -50,45 +50,60 @@
   }
   
   /* -------- Right side: nav links (base / desktop) -------- */
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-  
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Each link */
-  .nav-links li a {
-    color: black;
-    text-decoration: none;
-  
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    padding-bottom: 2px;
-  
-    position: relative;
-  }
-  
-  /* Underline hover — minimalist catalog style */
-  .nav-links li a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-  
-    width: 0%;
-    height: 1px;
-    background: black;
-  
-    transition: width 0.25s ease;
-  }
-  
-  .nav-links li a:hover::after {
-    width: 100%;
-  }
-  
+  /* -------- Right side: nav links (base / desktop) -------- */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* Shared styles for links AND buttons */
+.nav-links li a,
+.nav-links li .nav-button {
+  background: none;
+  border: none;
+  padding: 0;
+
+  color: black;
+  text-decoration: none;
+
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  padding-bottom: 2px;
+
+  position: relative;
+  cursor: pointer;
+}
+
+/* Underline hover — minimalist catalog style */
+.nav-links li a::after,
+.nav-links li .nav-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 0%;
+  height: 1px;
+  background: black;
+
+  transition: width 0.25s ease;
+}
+
+/* Hover underline */
+.nav-links li a:hover::after,
+.nav-links li .nav-button:hover::after {
+  width: 100%;
+}
+
+/* Optional: remove default button focus ring & keep clean */
+.nav-links li .nav-button:focus {
+  outline: none;
+}
+
   /* -------- Hamburger button (hidden on desktop) -------- */
   .nav-toggle {
     display: none; /* default: hide, we'll show on mobile */
